@@ -1,0 +1,18 @@
+orchestrator:
+  agent_list:
+    - agent_name: "Time Server Agent"  # time zone information
+   # - agent_name: "Python Executor Agent"  # Agent for executing Python code snippets
+   # - agent_name: "Google Calendar Agent"  # Agent for managing Google Calendar events
+   # - agent_name: "Travelling Tips Advisor" # Agent for providing Travelling tips
+
+utility_agents:
+  - agent_class: MCPClientAgent
+    agent_name: "Time Server Agent"  # Should match the agent_name in orchestrator
+    agent_description: "Provide current time information for different timezones" # Description of functionality
+    config:
+      mcp_sse_url: "http://localhost:8091/sse"  # User defined local URL of the MCP server exposing filesystem services
+      enable_interpreter: true # Optional: Disables output interpretation. If set to false, the agent will directly return JSON send back from MCP server.
+      wait_time: 260 #  Optional: Time (in seconds) the agent waits for MCP server response
+
+  
+
